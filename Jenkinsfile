@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Docker registry push"){
             steps{
-                withDockerRegistry([credentialsId: 'docker-user' url:'']) {
+                withDockerRegistry([credentialsId: 'docker-user', url:'']) {
                     sh "docker tag $IMAGE_NAME $IMAGE_NAME:latest"
                     sh "docker push $IMAGE_NAME:latest"
                 }
